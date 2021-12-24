@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
+import CartWidget from './CartWidget/CartWidget';
 
 const NavBar = () => {
     return (
@@ -10,6 +11,7 @@ const NavBar = () => {
     <Container>
     <Navbar.Brand href="#home">Coder Crypto</Navbar.Brand>
     <Nav className="me-auto">
+      <Nav.Link> <CartWidget/> </Nav.Link>
       <Nav.Link href="#home">Home</Nav.Link>
       <Nav.Link href="#features">White List</Nav.Link>
       <Nav.Link href="#pricing">Social</Nav.Link>
