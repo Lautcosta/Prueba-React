@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+
 import { getFetch } from '../../helpers/mock';
+import ItemList from '../ItemList/ItemList';
 
 
 
@@ -31,25 +31,7 @@ const ItemListContainer = ({greeting}) => {
 
             {
                 loading ? <h3>Cargando...</h3> : 
-                productos.map(prod => 
-                    <Card className='text-center mx-auto' key={prod.id} style={{ width:'18rem' }}>
-                 
-                    <Card.Img className='text-center mx-auto' variant="top" src="{prod.img}" /> 
-                    
-  
-                    <Card.Body>
-
-                        <Card.Title>Producto {prod.id}</Card.Title>
-                        
-                        <Card.Text>
-                            
-                        </Card.Text>
-
-                        <Button variant="primary">Comprar</Button>
-
-                    </Card.Body>
-
-                    </Card>)
+                <ItemList productos = {productos}  />
             }
 
 
