@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-
 import { getFetch } from '../../helpers/mock';
 import ItemList from '../ItemList/ItemList';
 
@@ -33,11 +32,7 @@ const ItemListContainer = ({greeting}) => {
                 loading ? <h3>Cargando...</h3> : 
                 <ItemList productos = {productos}  />
             }
-
-
-
-
-            
+   
 
         </div>
 
