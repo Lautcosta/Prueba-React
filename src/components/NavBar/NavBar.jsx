@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import CartWidget from '../CartWidget/CartWidget';
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -10,11 +11,13 @@ const NavBar = () => {
   <Navbar bg="dark" variant="dark">
     <Container>
     <Navbar.Brand href="#home">Coder Crypto</Navbar.Brand>
+    <Link to='/'>Home</Link>
+    <Link to='/cart'><CartWidget/></Link>  
     <Nav className="me-auto">
-      <Nav.Link> <CartWidget/> </Nav.Link>
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">White List</Nav.Link>
-      <Nav.Link href="#pricing">Social</Nav.Link>
+      
+      <Link to='/categoria/mouse'>Mouses</Link>
+      
+      <Link to='/categoria/teclado'>Teclados</Link>
     </Nav>
     </Container>
   </Navbar>

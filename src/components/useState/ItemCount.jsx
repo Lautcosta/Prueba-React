@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 
-const ItemCount = ({min, max, onAdd}) => {
+const ItemCount = ({min, max}) => {
 
     const [counter, setCounter] = useState(min)
     const [show, setShow] = useState(false)

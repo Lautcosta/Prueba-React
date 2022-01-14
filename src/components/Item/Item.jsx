@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import {Link} from 'react-router-dom';
+
 
 const Item = ({prod}) => {
     return (
@@ -15,11 +17,17 @@ const Item = ({prod}) => {
                     
                 </Card.Text>
 
-                <Button variant="primary">Comprar</Button>
+                <Link to={`/detalle/${prod.id}`}>
+                <Button variant="primary">Detalle</Button>
+                </Link>   
+                
 
             </Card.Body>
 
+    
             </Card>
+            
+            
             
         </div>
     )
