@@ -4,22 +4,29 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
+import './NavBar.css';
 
 const NavBar = () => {
     return (
 
   <Navbar bg="dark" variant="dark">
+
     <Container>
-    <Navbar.Brand href="#home">Coder Crypto</Navbar.Brand>
-    <Link to='/'>Home</Link>
-    <Link to='/cart'><CartWidget/></Link>  
+      <Link to='/'>
+        <Navbar.Brand className='linksNav'>Coder Crypto</Navbar.Brand>
+      </Link>
+    <Link to='/'className='linksNav'>Home</Link>
+    <Link to='/cart'className='linksNav'><CartWidget/></Link>  
+
     <Nav className="me-auto">
       
-      <Link to='/categoria/mouse'>Mouses</Link>
+      <Link to='/categoria/mouse' className='linksNav'>Mouses</Link>
       
-      <Link to='/categoria/teclado'>Teclados</Link>
+      <Link to='/categoria/teclado'className='linksNav'>Teclados</Link>
     </Nav>
+
     </Container>
+
   </Navbar>
 
     )

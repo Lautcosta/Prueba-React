@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 
-const ItemCount = ({min, max}) => {
+const ItemCount = ({min, max, onAdd}) => {
 
     const [counter, setCounter] = useState(min)
     const [show, setShow] = useState(false)
@@ -19,9 +19,7 @@ const ItemCount = ({min, max}) => {
         
     }
 
-    const mostrar = () => {
-        setShow(!show)
-    }
+    
 
 
     return (
@@ -33,7 +31,7 @@ const ItemCount = ({min, max}) => {
 
             <button onClick={resta}>-</button>
             <br/> <br/>
-            <button onClick={mostrar}>Agregar al carrito</button>
+            <button onClick={()=>onAdd(counter)}>Agregar al carrito</button>
 
             {
                 show && <h1>{counter}</h1>

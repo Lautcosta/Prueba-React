@@ -1,10 +1,21 @@
 import React from "react"
+import { useState } from "react";
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 import ItemCount from "../../useState/ItemCount";
 
 
+
+
+
+
 const ItemDetail = ({producto}) => {
+
+    const [show, setShow] = useState(true)
+    const onAdd = (counter) => {
+        setShow(false)
+    }
+
     return (
         <div className="text-center">
 
@@ -17,9 +28,17 @@ const ItemDetail = ({producto}) => {
                     <Card.Text>
                          ID : {producto.id}<br/>
                     </Card.Text>
-                    <Button id={producto.id} variant="primary">Comprar</Button>
 
-                    <ItemCount min={1} max={10}/>
+                    {
+                        show ? <ItemCount min={1} max={10} onAdd={onAdd}/> :
+                        <div>
+                            
+                            <Link to='/'><button>Continuar compra</button></Link>
+                            <Link to='/cart'><button>Ir a carrito</button></Link>
+
+                        </div> 
+                    }
+
                 </Card.Body>
             </Card>
             
