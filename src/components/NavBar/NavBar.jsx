@@ -34,7 +34,7 @@ const NavBar = () => {
 
     </Container>
 
-    <Link  className="link" exact to={'/cart' }>
+    {<Link  className="link" exact to={'/cart' }>
         <div className="text-center">
         
         {cartList.length === 0 ?
@@ -50,7 +50,7 @@ const NavBar = () => {
 
         </div>
 
-    </Link>
+    </Link>}
 
   </Navbar>
 
