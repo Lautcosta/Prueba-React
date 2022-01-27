@@ -4,10 +4,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
+import { useCartContext } from '../../context/cartContext';
 import './NavBar.css';
 
+
 const NavBar = () => {
-    return (
+
+  const {iconCart, cartList} =useCartContext()
+
+  console.log(iconCart + ' esto es el cartList')
+
+  return (
 
   <Navbar bg="dark" variant="dark">
 
@@ -26,6 +33,24 @@ const NavBar = () => {
     </Nav>
 
     </Container>
+
+    <Link  className="link" exact to={'/cart' }>
+        <div className="text-center">
+        
+        {cartList.length === 0 ?
+            <></>
+          :
+          <div>
+            <span className=" text-white  iconCart ">
+            {iconCart()}
+            </span>
+            <CartWidget />
+          </div>
+        }
+
+        </div>
+
+    </Link>
 
   </Navbar>
 

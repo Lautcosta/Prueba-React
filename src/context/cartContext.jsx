@@ -14,8 +14,9 @@ export const CartContextProvider = ({children}) => {
 
     //estados y funciones globales
 
-    const[cartList, setCartList] = useState([]) 
- 
+    const[cartList, setCartList] = useState([]); 
+    
+    //Funcion Agregar al carrito
     function agregarAlCarrito(items){
 
         const index = cartList.findIndex(i => i.id === items.id)
@@ -33,15 +34,41 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
+
+    //Funcion Vaciar Carrito
     function vaciarCarrito(){
         setCartList([])
     }
-    
+
+
+    //Funcion Precio Total
+    const precioTotal = () => {
+        let total = 0;
+
+        cartList.forEach((itemNvo) => {
+            total += parseInt(itemNvo.item.precio) * parseInt(itemNvo.cantidad);
+        });
+
+        return parseInt(total);
+    };
+
+    //Funcion Remover uno solo
+    const removerItem = (id) => {
+        setCartList(cartList.filter((itemNvo) => itemNvo.item.id !== id));
+    };
+
+    //Funcion Icono en carrito
+    const iconCart = () => cartList.reduce((acum, valor) => acum + valor.cantidad, 0);
+
+
     return(
-        <CartContext.Provider value = {{
+        <CartContext.Provider value ={{
             cartList,
             agregarAlCarrito,
-            vaciarCarrito
+            vaciarCarrito,
+            precioTotal,
+            removerItem,
+            iconCart,
         }}>
             {children}
         </CartContext.Provider>
