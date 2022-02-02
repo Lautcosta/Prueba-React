@@ -20,37 +20,42 @@ const NavBar = () => {
 
     <Container>
       <Link to='/'>
-        <Navbar.Brand className='linksNav'>Coder Crypto</Navbar.Brand>
+        <Navbar.Brand className='linksNav'>Coder Hardware</Navbar.Brand>
       </Link>
-    <Link to='/'className='linksNav'>Home</Link>
-    <Link to='/cart'className='linksNav'><CartWidget/></Link>  
+       <Link to='/'className='linksNav'>Home</Link>
+    
 
-    <Nav className="me-auto">
+
+     <Nav className="me-auto">
       
       <Link to='/categoria/mouse' className='linksNav'>Mouses</Link>
       
       <Link to='/categoria/teclado'className='linksNav'>Teclados</Link>
-    </Nav>
+     </Nav>
 
-    </Container>
-
-    {<Link  className="link" exact to={'/cart' }>
+     <Link  className="link" exact to={'/cart' }>
         <div className="text-center">
         
         {cartList.length === 0 ?
-            <></>
+            <><CartWidget /></>
           :
           <div>
-            <span className=" text-white  iconCart ">
+            <span className=" text-red  iconCart ">
             {iconCart()}
+            
             </span>
             <CartWidget />
+
           </div>
         }
 
         </div>
 
-    </Link>}
+    </Link>
+
+    </Container>
+
+    
 
   </Navbar>
 

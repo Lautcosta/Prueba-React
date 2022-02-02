@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { getFetch } from '../../helpers/mock';
 import ItemList from '../ItemList/ItemList';
+import {collection,query,getFirestore, getDocs} from 'firebase/firestore'
 
 
 
@@ -15,7 +16,16 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
 
-        if(idCategoria){
+        const db = getFirestore();
+
+        const queryCollection= query(collection(db,'items'))
+
+        getDocs(queryCollection)
+        .then(res => setProductos(  res.docs.map(prod =>({ id: prod.id, ...prod.data()}))  ))
+        .catch(err => err)
+        .finally(() => setLoading(false) )
+
+        /* if(idCategoria){
             getFetch
             .then(resp => setProductos(resp.filter(prod=> prod.categoria === idCategoria)))
             .catch(err => console.log(err))
@@ -29,7 +39,7 @@ const ItemListContainer = ({greeting}) => {
         .catch(err => console.log(err))
         .finally(() => setLoading(false) ) 
 
-        }
+        } */
 
 
         
